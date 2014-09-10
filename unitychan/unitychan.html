@@ -49,10 +49,10 @@ var scene;
 var sceneTime;
 
 // camera matrix in world space
-var cameraMatrix = new Float32Array([0.997801468292, 0.0, 0.0662739003991, 0.0, 0.01618833937, 0.969708726651, -0.243727148928, 0.0, -0.0642663795663, 0.244264171454, 0.967576791268, 0.0, -15.5911224373, 151.885276314, 300.94248853, 1.0]);
+var cameraMatrix;
 
 // camera projection parameters
-var cameraProjection = new Float32Array([2.0, 1.37795, 1.41732, 0.94488, 0.0, 0.0, 1.0, 1000.0]);
+var cameraProjection;
 
 var startTime;
 
@@ -172,6 +172,12 @@ function webGLStart()
 		// create scene
 		scene = container.createScene("unitychan", group);
 		sceneTime = scene.getFloatVector("time", 1);
+
+		// get reference to camera matrix from scene
+		cameraMatrix = scene.getFloatVector("cameraShape1.worldMatrix[0]", 16);
+
+		// get reference to projection parameters from scene
+		cameraProjection = scene.getFloatArray("cameraShape1.projection");
 
 	});
 
