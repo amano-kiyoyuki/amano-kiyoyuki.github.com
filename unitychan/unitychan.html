@@ -100,9 +100,9 @@ function drawScene()
 {
 	// get time
 	var time = new Date().getTime() / 1000.0 - startTime;
-	if (time > 8.3333333333333339)
+	if (time > 20)
 	{
-		var length = 8.3333333333333339 - 0.033333333333333333;
+		var length = 20 - 0.033333333333333333;
 		time -= length;
 		startTime += length;
 	}
@@ -147,7 +147,7 @@ function webGLStart()
 	gl = WebGLUtils.setupWebGL(canvas);
 
 	// create renderer with given number of pre-allocated render jobs
-	renderer = new engine.Renderer(50);
+	renderer = new engine.Renderer(61);
 	
 	// create a render group
 	group = renderer.createGroup();
